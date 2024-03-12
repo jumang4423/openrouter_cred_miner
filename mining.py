@@ -81,6 +81,9 @@ def check_key(key: str) -> bool:
     
 while True:
     html_urls = search_github_code_urls(page)
+    if html_urls is None:
+        print("No more results")
+        break
     for url in html_urls:
         get_raw_url = url.replace('github.com', 'raw.githubusercontent.com').replace('/blob', '')
         cur_html = requests.get(get_raw_url).text
@@ -100,7 +103,6 @@ while True:
                             json.dump(data, f)
             else:
                 print(f"invalid...")
-
     page += 1
 
 
