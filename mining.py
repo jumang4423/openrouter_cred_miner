@@ -105,9 +105,3 @@ while True:
                 print(f"invalid...")
     page += 1
 
-
-if results:
-    for item in results:
-        print(item)
-else:
-    print("No results found or there was an error.")
